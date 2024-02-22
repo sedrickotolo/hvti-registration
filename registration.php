@@ -226,13 +226,14 @@
 
         <!-- Attachments -->
         <div class="form-group">
-            <label for="cv">Upload CV (PDF/Word):</label>
+            <label for="cv">Upload a Recommendation Letter given by the school (PDF/Word)</label>
             <input type="file" class="form-control-file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
         </div>
-        <div class="form-group">
-            <label for="mentorLetter">Upload PDF Letter for a Mentor:</label>
-            <input type="file" class="form-control-file" id="mentorLetter" name="mentorLetter" accept=".pdf" required>
-        </div>
+      <div class="form-group">
+        <label for="mentorLetter">Upload Letter from a Mentor:</label>
+        <input type="file" class="form-control-file" id="mentorLetter" name="mentorLetter" accept=".pdf, .jpg, .png, .docx" required>
+    </div>
+
         <!-- Agreement of Terms and Conditions -->
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="agreeTerms" required>

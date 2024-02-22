@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HVTI - Watoto</title>
+
+       <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="HVTI - Student Registration Data">
+    <meta property="og:description" content="Hope Vocational Technical Institute New Student Registration form">
+    <meta property="og:image" content="imgs/img.jpg"> <!-- Add a path to your image -->
+    <meta property="og:url" content="www.hvti.online">
+
+
     <style>
         body {
             margin: 0;

@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // SQL query to insert data into the database
-    $sql = "INSERT INTO StudentRegistration (fullName, phone, otherNames, dob, uceIndex, totalAggregates, bestSubjects, currentAddress, mobileNumber, email, secondarySchool, parentName, parentTel, courses, rating, source, otherSource, cvPath, mentorLetterPath, agreeTerms) 
+    $sql = "INSERT INTO studentregistration (fullName, phone, otherNames, dob, uceIndex, totalAggregates, bestSubjects, currentAddress, mobileNumber, email, secondarySchool, parentName, parentTel, courses, rating, source, otherSource, cvPath, mentorLetterPath, agreeTerms) 
             VALUES ('$fullName', '$phone', '$otherNames', '$dob', '$uceIndex', '$totalAggregates', '$bestSubjects', '$currentAddress', '$mobileNumber', '$email', '$secondarySchool', '$parentName', '$parentTel', '$courses', '$rating', '$source', '$otherSource', '$cvPath', '$mentorLetterPath', '$agreeTerms')";
 
     if ($conn->query($sql) === TRUE) {

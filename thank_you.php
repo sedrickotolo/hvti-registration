@@ -31,7 +31,7 @@
         <!-- Dancing emoji -->
         <div class="emoji">&#x1F609;</div>
         <!-- Add a funny thank you sticker or any other content -->
-        <img class="mt-3" src="funny_thank_you_sticker.png" alt="Funny Thank You Sticker" style="max-width: 100%;">
+        <!-- <img class="mt-3" src="funny_thank_you_sticker.png" alt="Funny Thank You Sticker" style="max-width: 100%;"> -->
         <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
