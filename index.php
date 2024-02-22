@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hero Page</title>
+    <title>HVTI - Watoto</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url('imgs/c.jfif') no-repeat center center fixed;
+            background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url('imgs/c.jfif') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
@@ -32,7 +32,7 @@
 </head>
 <body>
     <div class="hero-content">
-        <h1>Welcome to Our Event</h1>
+        <h1>Welcome to HVTI </h1>
         <p>Join us by registering now!</p>
         <a href="registration.php" class="registration-button">Register</a>
     </div>

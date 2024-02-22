@@ -9,7 +9,7 @@
 <body>
 
 <div class="container mt-5">
-    <h2 class="mb-4">Student Registration Form</h2>
+    <h2 class="mb-4 mt-5">HVTI Student Registration Form</h2>
     <form action="submit.php" method="post" enctype="multipart/form-data">
         <!-- Personal Information -->
         <div class="form-group">
