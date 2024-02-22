@@ -5,11 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration Form</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
 
-<div class="container mt-5">
-    <h2 class="mb-4 mt-5">HVTI Student Registration Form</h2>
+       <style>
+        #clock {
+            font-family: 'Arial', sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #clock-sections {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .clock-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+        }
+
+        .clock-value {
+            font-size: 24px;
+        }
+
+        .clock-label {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+
+    
+
+</head>
+<body class="mt-5">
+ <!-- <div id="countdown"></div> -->
+
+    <div class="container text-center">
+         <div id="clock" class="text-center">
+            <div id="clock-sections">
+                <div class="clock-section">
+                    <div id="days" class="clock-value"></div>
+                    <div class="clock-label">Days</div>
+                </div>
+                <div class="clock-section">
+                    <div id="hours" class="clock-value"></div>
+                    <div class="clock-label">Hours</div>
+                </div>
+                <div class="clock-section">
+                    <div id="minutes" class="clock-value"></div>
+                    <div class="clock-label">Minutes</div>
+                </div>
+                <div class="clock-section">
+                    <div id="seconds" class="clock-value"></div>
+                    <div class="clock-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+       
+<script>
+    // Set the date we're counting down to
+    const countDownDate = new Date("March 3, 2024 00:00:00").getTime();
+
+    // Update the countdown every 1 second
+    const x = setInterval(function() {
+        // Get the current date and time
+        const now = new Date().getTime();
+
+        // Calculate the time remaining
+        const distance = countDownDate - now;
+
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the countdown as a clock
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        // If the countdown is over, display a message
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("clock").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
+
+ 
+     
+ </div>
+  
+
+<div class="container mt-5 mb-5">
+    <h2 class="mb-4 mt-5 text-center">HVTI Student Admission 2024</h2>
+    <!-- <p> 2024</p> -->
     <form action="submit.php" method="post" enctype="multipart/form-data">
         <!-- Personal Information -->
         <div class="form-group">
@@ -110,27 +213,38 @@
             <label for="email">Email Address:</label>
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
-        <!-- Secondary School Information -->
+        
         <div class="form-group">
-            <label>Which secondary school do you go to?</label><br>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="secondarySchool" id="hopeBbira" value="Hope Senior School Bbira">
-                <label class="form-check-label" for="hopeBbira">Hope Senior School Bbira</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="secondarySchool" id="hopeSuubi" value="Hope Senior School Suubi">
-                <label class="form-check-label" for="hopeSuubi">Hope Senior School Suubi</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="secondarySchool" id="hopeLaminadera" value="Hope Senior School Laminadera">
-                <label class="form-check-label" for="hopeLaminadera">Hope Senior School Laminadera</label>
-            </div>
-            <!-- Add more secondary school options as needed -->
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="secondarySchool" id="otherSchool" value="Other">
-                <label class="form-check-label" for="otherSchool">Other</label>
-            </div>
+        <label>Which secondary school do you go to?</label><br> <br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="secondarySchool" id="hopeBbira" value="Hope Senior School Bbira" onclick="toggleFields()">
+            <label class="form-check-label" for="hopeBbira">Hope Senior School Bbira</label>
         </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="secondarySchool" id="hopeSuubi" value="Hope Senior School Suubi" onclick="toggleFields()">
+            <label class="form-check-label" for="hopeSuubi">Hope Senior School Suubi</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="secondarySchool" id="hopeLaminadera" value="Hope Senior School Laminadera" onclick="toggleFields()">
+            <label class="form-check-label" for="hopeLaminadera">Hope Senior School Laminadera</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="secondarySchool" id="otherSchool" value="Other" onclick="toggleFields()">
+            <label class="form-check-label" for="otherSchool">Other</label>
+        </div>
+    </div>
+
+    <!-- Additional fields for pass slip -->
+    <div id="passSlipFields" style="display: none;">
+        <div class="form-group">
+            <label for="schoolName">Name of School Attended:</label>
+            <input type="text" class="form-control" name="schoolName">
+        </div>
+        <div class="form-group">
+            <label>Attach a pass slip (PDF, JPEG, DOC, PNG):</label>
+            <input type="file" class="form-control-file" name="passSlip" accept=".pdf, .jpeg, .jpg, .png">
+        </div>
+    </div>
         
         <!-- Parent/Guardian Details -->
         <div class="form-group">
@@ -144,7 +258,7 @@
 
       <!-- Course Choices -->
     <div class="form-group" id="courseCheckboxGroup">
-    <label>Select your courses (up to 3):</label><br>
+    <label>Select your courses (up to 5):</label><br>
 
     <!-- JavaScript will dynamically populate this section -->
 </div>
@@ -191,7 +305,7 @@
                 // Disable additional checkboxes when the limit is reached
                 courses.forEach(function (course) {
                     var checkbox = document.getElementById(`${course.toLowerCase().replace(/ /g, '')}Checkbox`);
-                    checkbox.disabled = selectedCheckboxes >= 3 && !checkbox.checked;
+                    checkbox.disabled = selectedCheckboxes >= 5 && !checkbox.checked;
                 });
             });
         });
@@ -202,10 +316,16 @@
 </script>
 
         <!-- Rating Section -->
-        <div class="form-group">
-            <label for="rating">Rate yourself (1-5, worse to best):</label>
-            <input type="number" class="form-control" id="rating" name="rating" min="1" max="5" required>
-        </div>
+            <div class="form-group">
+                <label for="rating">How would you rate HVTI?</label>
+                <select class="form-control" id="rating" name="rating" required>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Average</option>
+                    <option value="4">4 - Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+            </div>
         <!-- How did you know about HVTI? -->
         <div class="form-group">
                 <label for="source">How did you know about HVTI?</label>
@@ -226,11 +346,11 @@
 
         <!-- Attachments -->
         <div class="form-group">
-            <label for="cv">Upload a Recommendation Letter given by the school (PDF/Word)</label>
+            <label for="cv">Upload your CV in PDF/Word</label>
             <input type="file" class="form-control-file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
         </div>
       <div class="form-group">
-        <label for="mentorLetter">Upload Letter from a Mentor:</label>
+        <label for="mentorLetter"> <b> Attach a letter of recommendation from a person who has known you for more than 3 years eg Pastor, Principal/Headteacher, Mentor, Business person or counselor </b></label>
         <input type="file" class="form-control-file" id="mentorLetter" name="mentorLetter" accept=".pdf, .jpg, .png, .docx" required>
     </div>
 

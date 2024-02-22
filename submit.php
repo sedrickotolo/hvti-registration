@@ -25,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mobileNumber = isset($_POST['mobileNumber']) ? mysqli_real_escape_string($conn, $_POST['mobileNumber']) : "";
     $email = isset($_POST['email']) ? mysqli_real_escape_string($conn, $_POST['email']) : "";
     $secondarySchool = isset($_POST['secondarySchool']) ? mysqli_real_escape_string($conn, $_POST['secondarySchool']) : "";
+    $schoolName = isset($_POST['schoolName']) ? mysqli_real_escape_string($conn, $_POST['schoolName']) : "";
+    $passSlipPath = isset($_FILES['passSlip']['name']) ? "uploads/" . basename($_FILES['passSlip']['name']) : "";
     $parentName = isset($_POST['parentName']) ? mysqli_real_escape_string($conn, $_POST['parentName']) : "";
     $parentTel = isset($_POST['parentTel']) ? mysqli_real_escape_string($conn, $_POST['parentTel']) : "";
     $courses = isset($_POST['courses']) ? implode(", ", $_POST['courses']) : "";
@@ -41,9 +43,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($_FILES['mentorLetter']['tmp_name'], $mentorLetterPath);
     }
 
+    // Upload pass slip only if it is set
+    if (isset($_FILES['passSlip']['tmp_name'])) {
+        move_uploaded_file($_FILES['passSlip']['tmp_name'], $passSlipPath);
+    }
+
     // SQL query to insert data into the database
-    $sql = "INSERT INTO studentregistration (fullName, phone, otherNames, dob, uceIndex, totalAggregates, bestSubjects, currentAddress, mobileNumber, email, secondarySchool, parentName, parentTel, courses, rating, source, otherSource, cvPath, mentorLetterPath, agreeTerms) 
-            VALUES ('$fullName', '$phone', '$otherNames', '$dob', '$uceIndex', '$totalAggregates', '$bestSubjects', '$currentAddress', '$mobileNumber', '$email', '$secondarySchool', '$parentName', '$parentTel', '$courses', '$rating', '$source', '$otherSource', '$cvPath', '$mentorLetterPath', '$agreeTerms')";
+    $sql = "INSERT INTO studentregistration (fullName, phone, otherNames, dob, uceIndex, totalAggregates, bestSubjects, currentAddress, mobileNumber, email, secondarySchool, schoolName, passSlipPath, parentName, parentTel, courses, rating, source, otherSource, cvPath, mentorLetterPath, agreeTerms) 
+            VALUES ('$fullName', '$phone', '$otherNames', '$dob', '$uceIndex', '$totalAggregates', '$bestSubjects', '$currentAddress', '$mobileNumber', '$email', '$secondarySchool', '$schoolName', '$passSlipPath', '$parentName', '$parentTel', '$courses', '$rating', '$source', '$otherSource', '$cvPath', '$mentorLetterPath', '$agreeTerms')";
 
     if ($conn->query($sql) === TRUE) {
         // Close the database connection
