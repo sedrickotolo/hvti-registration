@@ -155,7 +155,7 @@
         </div>
 
       <!-- Course Choices -->
-<div class="form-group">
+    <div class="form-group">
     <label>Select your courses (up to 3):</label><br>
     <div class="form-check">
         <input class="form-check-input" type="checkbox" id="course1" name="courses[]" value="National Certificate in Electrical Installation Systems & Maintenance (NCES)">
