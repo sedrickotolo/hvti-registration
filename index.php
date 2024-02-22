@@ -35,7 +35,7 @@
         <div class="form-group">
             <label for="totalAggregates">Total Aggregates:</label>
             <select class="form-control" id="totalAggregates" name="totalAggregates" required>
-                <option value="">Select Total Aggregates</option>
+                <option value="">Select Total Aggregates Scored</option>
                 <!-- Options for total aggregates (8 to 50) -->
                 <?php
                 for ($i = 8; $i <= 50; $i++) {
